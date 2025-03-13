@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hitung Luas</title>
+</head>
+<body>
+    <h1>TUGAS PERTEMUAN 1</h1>
+    <h1>IKHWAN EL FARIS</h1>
+    <h1>HITUNG LUAS</h1>
+
+
+    <script>
+        // Fungsi untuk menghitung luas persegi panjang
+        function hitungLuasPersegiPanjang(panjang, lebar) {
+            // Menghitung luas dengan rumus panjang * lebar
+            return panjang * lebar;
+        }
+
+        // Fungsi untuk menghitung luas bujur sangkar
+        function hitungLuasBujurSangkar(sisi) {
+            // Menghitung luas dengan rumus sisi * sisi
+            return sisi * sisi;
+        }
+
+        // Fungsi untuk menghitung luas segitiga
+        function hitungLuasSegitiga(panjang, tinggi) {
+            // Menghitung luas dengan rumus (panjang * tinggi) / 2
+            return (panjang * tinggi) / 2;
+        }
+
+        // Contoh penggunaan fungsi
+        const panjang = 10; // panjang persegi panjang
+        const lebar = 5;    // lebar persegi panjang
+        const sisi = 4;     // sisi bujur sangkar
+        const tinggi = 6;   // tinggi segitiga
+
+        // Menghitung luas dan menampilkan hasil
+        document.write(" Luas Persegi Panjang: " + hitungLuasPersegiPanjang(panjang, lebar));
+        document.write("<br>Luas Bujur Sangkar: " + hitungLuasBujurSangkar(sisi));
+        document.write("<br>Luas Segitiga: " + hitungLuasSegitiga(panjang, tinggi));
+    </script>
+</body>
+</html>
