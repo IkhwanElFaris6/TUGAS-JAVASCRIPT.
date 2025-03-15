@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Pegawai</title>
+    <style>
+        table {
+            width: 50%;
+            border-collapse: collapse;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <thead>
+        <tr>
+            <th>Nama Pegawai</th>
+            <th>Umur</th>
+            <th>Jabatan</th>
+            <th>Status</th>
+            <th>Gaji Pokok</th>
+            <th>Tunjangan Jabatan</th>
+            <th>BPJS</th>
+            <th>Tunjangan Keluarga</th>
+            <th>Total Gaji</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Dodi Prayodi</td>
+            <td>25</td>
+            <td>Manajer</td>
+            <td>Menikah</td>
+            <td id="gajiPokok"></td>
+            <td id="tunjanganJabatan"></td>
+            <td id="bpjs"></td>
+            <td id="tunjanganKeluarga"></td>
+            <td id="totalGaji"></td>
+        </tr>
+    </tbody>
+    <tfoot>
+        <tr>
+            <td colspan="8">Total Gaji</td>
+            <td id="totalGajiFooter"></td>
+        </tr>
+    </tfoot>
+</table>
+
+<script>
+    // Data Pegawai
+    const pegawai = {
+        nama: "Dodi Prayodi",
+        umur: 25,
+        jabatan: "Manajer",
+        status: "Menikah"
+    };
+
+    // Gaji Pokok berdasarkan jabatan
+    let gajiPokok;
+    if (pegawai.jabatan === "Manajer") {
+        gajiPokok = 15000000; // 15 juta
+    } else if (pegawai.jabatan === "Asisten Manajer") {
+        gajiPokok = 10000000; // 10 juta
+    } else if (pegawai.jabatan === "Staff") {
+        gajiPokok = 5000000; // 5 juta
+    }
+
+    // Tunjangan Jabatan
+    const tunjanganJabatan = gajiPokok * 0.15; // 15% dari gaji pokok
+
+    // BPJS
+    const bpjs = gajiPokok * 0.10; // 10% dari gaji pokok
+
+    // Tunjangan Keluarga
+    const tunjanganKeluarga = (pegawai.status === "Menikah") ? (gajiPokok * 0.20) : 0; // 20% dari gaji pokok jika menikah
+
+    // Total Gaji
+    const totalGaji = gajiPokok + tunjanganJabatan + bpjs + tunjanganKeluarga;
+
+    // Menampilkan data ke dalam tabel
+    document.getElementById("gajiPokok").innerText = gajiPokok.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+    document.getElementById("tunjanganJabatan").innerText = tunjanganJabatan.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+    document.getElementById("bpjs").innerText = bpjs.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+    document.getElementById("tunjanganKeluarga").innerText = tunjanganKeluarga.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+    document.getElementById("totalGaji").innerText = totalGaji.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+    document.getElementById("totalGajiFooter").innerText = totalGaji.toLocaleString('id-ID', { style: 'currency', currency: 'IDR' });
+</script>
+
+</body>
+</html>
